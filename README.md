@@ -1,2 +1,5 @@
 # vue3-use-demo
-关于vue3使用的demo
+
+## 1.vue3 + vite 搭建项目
+
+## 2.vue3的使用
