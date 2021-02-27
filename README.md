@@ -19,3 +19,5 @@
 * Computed Properties
 
 * Reactive Syntax
+
+* modularizing

@@ -16,40 +16,46 @@
 </template>
 
 <script>
-import { ref, computed, reactive, toRefs } from 'vue';
+// import { ref, computed, reactive, toRefs } from 'vue';
+import { useEventSpace } from './use/event-space';
+
 export default {
+  // setup() {
+  //   // ref
+  //   const capacity = ref(3);
+  //   const attending = ref(['Tim', 'Bob', 'Joe'])
+
+  //   // methods; ref => getter setter
+  //   function increaseCapacity() {
+  //     return capacity.value++;
+  //   }
+
+  //   // computed
+  //   const spaceList = computed(() => {
+  //     return capacity.value - attending.value.length;
+  //   });
+
+  //   // return
+  //   return { capacity, increaseCapacity, attending, spaceList };
+
+  //   reactive
+  //   const event = reactive({
+  //     capacity: 3,
+  //     attending: ['Tim', 'Bob', 'Joe'],
+  //     spaceList: computed(() => {
+  //       return event.capacity - event.attending.length;
+  //     })
+  //   });
+  //   // methods; reactive => getter setter
+  //   function increaseCapacity() {
+  //     return event.capacity++;
+  //   }
+  //   // toRefs (遍历所有event属性, 如果不是 extends ref, 则ref它)
+  //   return { ...toRefs(event), increaseCapacity }
+  // }
   setup() {
-    // // ref
-    // const capacity = ref(3);
-    // const attending = ref(['Tim', 'Bob', 'Joe'])
-
-    // // methods; ref => getter setter
-    // function increaseCapacity() {
-    //   return capacity.value++;
-    // }
-
-    // // computed
-    // const spaceList = computed(() => {
-    //   return capacity.value - attending.value.length;
-    // });
-
-    // // return
-    // return { capacity, increaseCapacity, attending, spaceList };
-
-    // reactive
-    const event = reactive({
-      capacity: 3,
-      attending: ['Tim', 'Bob', 'Joe'],
-      spaceList: computed(() => {
-        return event.capacity - event.attending.length;
-      })
-    });
-    // methods; reactive => getter setter
-    function increaseCapacity() {
-      return event.capacity++;
-    }
-    // toRefs (遍历所有event属性, 如果不是 extends ref, 则ref它)
-    return { ...toRefs(event), increaseCapacity }
+    const { capacity, increaseCapacity, attending, spaceList } = useEventSpace();
+    return { capacity, increaseCapacity, attending, spaceList };
   }
 }
 </script>
