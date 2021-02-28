@@ -20,4 +20,6 @@
 
 * Reactive Syntax
 
-* modularizing
+* Modularizing
+
+* Lifecycle Hooks

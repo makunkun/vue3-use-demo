@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { onBeforeMount, onMounted } from 'vue';
 // import { ref, computed, reactive, toRefs } from 'vue';
 import { useEventSpace } from './use/event-space';
 
@@ -53,7 +54,15 @@ export default {
   //   // toRefs (遍历所有event属性, 如果不是 extends ref, 则ref它)
   //   return { ...toRefs(event), increaseCapacity }
   // }
+
+  // beforeCreate() => setup() => created()
   setup() {
+    onBeforeMount(() => {
+      console.log('Before Mount');
+    });
+    onMounted(() => {
+      console.log('Mounted!');
+    });
     const { capacity, increaseCapacity, attending, spaceList } = useEventSpace();
     return { capacity, increaseCapacity, attending, spaceList };
   }
